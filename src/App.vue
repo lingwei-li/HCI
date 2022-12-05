@@ -16,13 +16,19 @@ export default {
     living: () => import('./views/living'),
     kitchen: () => import('./views/kitchen'),
     refrigerator: () => import('./views/refrigerator'),
+    airfryer: () => import('./views/airfryer'),
+    microwave: () => import('./views/microwave'),
     bath: () => import('./views/bath'),
     water_heater: () => import('./views/water_heater'),
+    bathshower: () => import('./views/bathshower'),
+    washmachine: () => import('./views/washmachine'),
     monitors: () => import('./views/monitors'),
     doors: () => import('./views/doors'),
     search: () => import('./views/search'),
     device: () => import('./views/device'),
     home: () => import('./views/home'),
+    bedroom: () => import('./views/bedroom'),
+    blind: () => import('./views/blind'),
     settings: () => import('./views/settings'),
     rooms: () => import('./views/rooms'),
     devices: () => import('./views/devices'),
@@ -32,7 +38,7 @@ export default {
     logs: () => import('./views/logs'),
     warnings: () => import('./views/warnings')
   },
-  mounted() {
+  mounted () {
     this.$zircle.config({
       mode: 'full',
       style: {

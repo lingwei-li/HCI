@@ -6,19 +6,20 @@
         <div slot="extension">
             <!-- family-->
             <z-spot :angle="-30" size="s" :distance="120" label="Water heater" label-pos="right" to-view="water_heater">
-                <i class="fa-solid fa-refrigerator"></i>
+                <i class="fas fa-weight"></i>
             </z-spot>
             <!-- scenes-->
-            <z-spot :angle="0" size="s" :distance="120" label="scenes" label-pos="right" to-view="scenes">
-                <i class="fas fa-angle-down"></i>
+            <z-spot :angle="0" size="s" :distance="120" label="Bath-shower" label-pos="right" to-view="bathshower">
+                <i class="fas fa-bath"></i>
             </z-spot>
             <!-- rooms-->
-            <z-spot :angle="30" size="s" :distance="120" label="Rooms" label-pos="right" to-view="rooms">
-                <i class="fas fa-angle-down"></i>
+            <z-spot :angle="30" size="s" :distance="120" label="Light" label-pos="right" to-view="light">
+                <i class="fas fa-lightbulb"></i>
             </z-spot>
             <!-- devices-->
-            <z-spot :angle="60" :distance="120" size="s" label="Devices" label-pos="right" to-view="devices">
-                <i class="fas fa-angle-down"></i>
+            <z-spot :angle="60" :distance="120" size="s" label="Washing machine" label-pos="right"
+                to-view="washmachine">
+                <i class="fas fa-wallet"></i>
             </z-spot>
         </div>
     </z-view>

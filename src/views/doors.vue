@@ -1,6 +1,8 @@
 <template>
-    <z-view>
-
+    <z-view style="border-width: 8px">
+        <span style="color: var(--accent-text-color)">Doors
+        </span>
+        <img slot="image" src="door.jpg" width="100%" height="100%" style="opacity: 0.3">
         <div slot="extension">
 
             <z-spot button @click.native="onClick1" v-bind:class="status1 ? 'success' : 'fail'" :distance="130"

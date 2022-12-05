@@ -27,23 +27,23 @@
 </template>
 <script>
 export default {
-    data() {
-        return {
-            openDialog: false,
-            console: [
-                '12:30pm - Some people is around yard',
-                '12:34pm - The smoke in the kitchen is heavy',
-                '1:50pm - The main entrance is not closed',
-            ]
-        }
-    },
-    methods: {
-        reset() {
-            this.console = ['No warnings available']
-
-            this.openDialog = false
-        }
+  data () {
+    return {
+      openDialog: false,
+      console: [
+        '12:30pm - Some people is around yard',
+        '12:34pm - The smoke in the kitchen is heavy',
+        '1:50pm - The main entrance is not closed'
+      ]
     }
+  },
+  methods: {
+    reset () {
+      this.console = ['No warnings available']
+
+      this.openDialog = false
+    }
+  }
 }
 </script>
 <style>

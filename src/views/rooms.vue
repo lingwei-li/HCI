@@ -2,7 +2,7 @@
   <z-view>
     Rooms
     <section slot="extension">
-      <z-list :items="rooms" :per-page="3">
+      <z-list :items="rooms" :per-page="2">
         <z-spot :distance="60" slot-scope="props" :index="props.index" :to-view="props.name" :label="props.name"
           :image-path="props.image" label-pos="bottom">
           <z-spot slot="extension" v-if="props.status" style="background-color: red; border: none;" :angle='-45'
@@ -33,9 +33,8 @@ export default {
     return {
       rooms: [
         { name: 'Living', devices: 6, image: './living.jpg' },
-        { name: 'Bedroom', devices: 2, image: './bedroom.jpg', status: 'alert' },
+        { name: 'Bedroom', devices: 2, image: './bedroom.jpg' },
         { name: 'Kitchen', devices: 5, image: './kitchen.jpg' },
-        { name: 'Studio', devices: 1 },
         { name: 'Bath', devices: 1, image: './bathroom.jpg' }
       ],
       openDialog: false

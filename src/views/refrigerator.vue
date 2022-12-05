@@ -4,7 +4,7 @@
             <h1>{{ activeScene }}</h1>
             {{ msg }}
         </span>
-        <img slot="image" src="kitchen.jpg" width="100%" height="100%" style="opacity: 0.3">
+        <img slot="image" src="fridge.jpg" width="100%" height="100%" style="opacity: 0.3">
         <div slot="extension">
             <z-spot v-for="(device, index) in devices" :button="device.name !== 'AC'"
                 :knob="(device.name == 'Freezer layer' || device.name == 'Refrigerated layer' || device.name == 'Fresh-keeping layer')"
@@ -39,9 +39,9 @@ export default {
 
             ],
             scenes: [
-                { name: 'Refrigerate', state: 'deactive', icon: 'fas fa-book' },
-                { name: 'Freeze', state: 'deactive', icon: 'fas fa-film' },
-                { name: 'Thaw', state: 'deactive', icon: 'fas fa-birthday-cake' }
+                { name: 'Refrigerate', state: 'deactive', icon: 'fas fa-sort' },
+                { name: 'Freeze', state: 'deactive', icon: 'fas fa-sort' },
+                { name: 'Thaw', state: 'deactive', icon: 'fas fa-sort' }
             ]
         }
     },
@@ -74,24 +74,23 @@ export default {
                         vm.msg = 'Applying rules...'
                         if (scene === 'Refrigerate') {
                             vm.devices = [
-                                { name: 'Freezer layer', state: 'on', temp: { qty: 24, unit: '?C', min: 18, max: 32 } },
-                                { name: 'Refrigerated layer', state: 'on', temp: { qty: 24, unit: '?C', min: 18, max: 32 } },
-                                { name: 'Fresh-keeping layer', state: 'on', temp: { qty: 24, unit: '?C', min: 18, max: 32 } },
+                                { name: 'Freezer layer', state: 'on', temp: { qty: 23, unit: 'F', min: 14, max: 32 } },
+                                { name: 'Refrigerated layer', state: 'on', temp: { qty: 41, unit: 'F', min: 32, max: 50 } },
+                                { name: 'Fresh-keeping layer', state: 'on', temp: { qty: 32, unit: 'F', min: 23, max: 41 } },
 
                             ]
                         } else if (scene === 'Freeze') {
                             vm.devices = [
-                                { name: 'Freezer layer', state: 'on', temp: { qty: 24, unit: '?C', min: 18, max: 32 } },
-                                { name: 'Refrigerated layer', state: 'on', temp: { qty: 24, unit: '?C', min: 18, max: 32 } },
-                                { name: 'Fresh-keeping layer', state: 'on', temp: { qty: 24, unit: '?C', min: 18, max: 32 } },
+                                { name: 'Freezer layer', state: 'on', temp: { qty: 23, unit: 'F', min: 14, max: 32 } },
+                                { name: 'Refrigerated layer', state: 'on', temp: { qty: 41, unit: 'F', min: 32, max: 50 } },
+                                { name: 'Fresh-keeping layer', state: 'on', temp: { qty: 32, unit: 'F', min: 23, max: 41 } },
 
                             ]
                         } else if (scene === 'Thaw') {
                             vm.devices = [
-                                { name: 'Freezer layer', state: 'on', temp: { qty: 24, unit: '?C', min: 18, max: 32 } },
-                                { name: 'Refrigerated layer', state: 'on', temp: { qty: 24, unit: '?C', min: 18, max: 32 } },
-                                { name: 'Fresh-keeping layer', state: 'on', temp: { qty: 24, unit: '?C', min: 18, max: 32 } },
-
+                                { name: 'Freezer layer', state: 'on', temp: { qty: 23, unit: 'F', min: 14, max: 32 } },
+                                { name: 'Refrigerated layer', state: 'on', temp: { qty: 41, unit: 'F', min: 32, max: 50 } },
+                                { name: 'Fresh-keeping layer', state: 'on', temp: { qty: 32, unit: 'F', min: 23, max: 41 } },
                             ]
                         }
                         vm.progress++

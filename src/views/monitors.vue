@@ -6,7 +6,7 @@
         <div slot="extension">
             <!-- family-->
             <z-spot :angle="-30" size="s" :distance="120" label="Front door" label-pos="right">
-                <i class="fa-solid fa-refrigerator"></i>
+                <i class="fas fa-angle-down"></i>
             </z-spot>
             <!-- scenes-->
             <z-spot :angle="0" size="s" :distance="120" label="Backdoor" label-pos="right">

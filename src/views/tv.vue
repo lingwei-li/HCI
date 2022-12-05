@@ -5,8 +5,10 @@
     Channel 9
 
     <div slot="extension">
-      <z-spot :button="device.name !== 'AC'" :knob="device.name === 'AC'" v-bind.sync="device.temp" :angle="0"
-        :distance="180" size="l" :to-view="device.view" :label="channel" :key="'dev_' + index">
+      <z-spot v-for="(device, index) in devices" :button="(device.name !== 'AC' && device.name !== 'vol')"
+        :knob="(device.name === 'AC' || device.name === 'vol')" v-bind.sync="device.temp"
+        :angle="1 + (180 / (devices.length - 1) * index)" :distance="180" size="l" :to-view="device.view"
+        :label="channel" :key="'dev_' + index">
         <i :class="device.icon"></i>
         <z-spot slot="extension" button :angle="-45" size="xxs" :style="
           device.state === 'on'
@@ -19,10 +21,7 @@
         size="s">
         <i class="fa fa-power-off"></i>
       </z-spot>
-      <z-spot button :distance="100" :angle="135" :progress="14" size="s" label="vol">
-      </z-spot>
-      <z-spot button class="accent" :distance="100" :angle="45" size="s" label="ch.">
-      </z-spot>
+
     </div>
   </z-view>
 </template>
@@ -40,13 +39,20 @@ export default {
         { name: "Camera", state: "off" },
       ],
       status: true,
-      device: 
+      devices: [
         {
           name: "AC",
           state: "on",
-          temp: { qty: 24, unit: "channel", min: 18, max: 32 },
+          temp: { qty: 24, unit: "channel", min: 1, max: 32 },
         },
-      
+        {
+          name: "vol",
+          state: "on",
+          temp: { qty: 5, unit: "vol", min: 1, max: 10 },
+        }
+
+      ]
+
     };
   },
   computed: {

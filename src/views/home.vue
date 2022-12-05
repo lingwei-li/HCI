@@ -18,23 +18,23 @@
         <span style="color: var( --accent-text-color)">15</span>
       </z-spot>
       <!-- family-->
-      <z-spot :angle="-30" size="s" :distance="120" label="family" label-pos="right" to-view="family">
-        <i class="fas fa-map-marker-alt"></i>
+      <z-spot :angle="54" size="s" :distance="120" label="family" label-pos="right" to-view="family">
+        <i class="fas fa-angle-down"></i>
       </z-spot>
       <!-- scenes-->
-      <z-spot :angle="0" size="s" :distance="120" label="scenes" label-pos="right" to-view="scenes">
+      <z-spot :angle="-18" size="s" :distance="120" label="scenes" label-pos="right" to-view="scenes">
         <i class="fas fa-angle-down"></i>
       </z-spot>
       <!-- rooms-->
-      <z-spot :angle="30" size="s" :distance="120" label="Rooms" label-pos="right" to-view="rooms">
+      <z-spot :angle="18" size="s" :distance="120" label="Rooms" label-pos="right" to-view="rooms">
         <i class="fas fa-angle-down"></i>
       </z-spot>
       <!-- devices-->
-      <z-spot :angle="60" :distance="120" size="s" label="Devices" label-pos="right" to-view="devices">
+      <z-spot :angle="90" :distance="120" size="s" label="Devices" label-pos="right" to-view="devices">
         <i class="fas fa-angle-down"></i>
       </z-spot>
       <!-- monitors-->
-      <z-spot :angle="-60" :distance="120" size="s" label="Monitors" label-pos="right" to-view="monitors">
+      <z-spot :angle="-54" :distance="120" size="s" label="Monitors" label-pos="right" to-view="monitors">
         <i class="fas fa-angle-down"></i>
       </z-spot>
       <!-- doors-->

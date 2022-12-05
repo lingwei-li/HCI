@@ -6,7 +6,7 @@
     </span>
     <img slot="image" src="living.jpg" width="100%" height="100%" style="opacity: 0.3">
     <div slot="extension">
-      <z-spot v-for="(device, index) in devices" :button="device.name !== 'AC'" :knob="device.name === 'AC'"
+      <z-spot v-for="(device, index) in devices" :button="device.name !== 'AC1'" :knob="device.name === 'AC1'"
         v-bind.sync="device.temp" :angle="1 + (180 / (devices.length - 1) * index)" :distance="100" size="m"
         :to-view="device.view" :label="device.name" :key="'dev_' + index">
         <i :class="device.icon"></i>
@@ -37,7 +37,7 @@ export default {
 
       ],
       scenes: [
-        { name: 'Relax', state: 'deactive', icon: 'fas fa-book' },
+        { name: 'Relax', state: 'deactive', icon: 'fas fa-laugh' },
         { name: 'Theatre', state: 'deactive', icon: 'fas fa-film' },
         { name: 'Party', state: 'deactive', icon: 'fas fa-birthday-cake' }
       ]
@@ -72,21 +72,21 @@ export default {
             vm.msg = 'Applying rules...'
             if (scene === 'Relax') {
               vm.devices = [
-                { name: 'AC', state: 'on', temp: { qty: 24, unit: '˚C', min: 18, max: 32 } },
+                { name: 'AC', state: 'on', vol: 14, bright: 30, source: 'youtube', icon: 'fas fa-tv', view: 'ac' },
                 { name: 'TV', state: 'off', vol: 14, bright: 30, source: 'youtube', icon: 'fas fa-tv', view: 'tv' },
                 { name: 'Hifi', state: 'on', vol: 14, bright: 30, source: 'youtube', icon: 'fas fa-music', view: 'hifi' },
                 { name: 'Light', state: 'off', vol: 14, bright: 30, source: 'youtube', icon: 'far fa-lightbulb', view: 'light' }
               ]
             } else if (scene === 'Theatre') {
               vm.devices = [
-                { name: 'AC', state: 'on', temp: { qty: 18, unit: '˚C', min: 18, max: 32 } },
+                { name: 'AC', state: 'on', vol: 14, bright: 30, source: 'youtube', icon: 'fas fa-tv', view: 'ac' },
                 { name: 'TV', state: 'on', vol: 14, bright: 30, source: 'youtube', icon: 'fas fa-tv', view: 'tv' },
                 { name: 'Hifi', state: 'off', vol: 14, bright: 30, source: 'youtube', icon: 'fas fa-music', view: 'hifi' },
                 { name: 'Light', state: 'off', vol: 14, bright: 30, source: 'youtube', icon: 'far fa-lightbulb', view: 'light' }
               ]
             } else if (scene === 'Party') {
               vm.devices = [
-                { name: 'AC', state: 'on', temp: { qty: 20, unit: '˚C', min: 18, max: 32 } },
+                { name: 'AC', state: 'on', vol: 14, bright: 30, source: 'youtube', icon: 'fas fa-tv', view: 'ac' },
                 { name: 'TV', state: 'off', vol: 14, bright: 30, source: 'youtube', icon: 'fas fa-tv', view: 'tv' },
                 { name: 'Hifi', state: 'on', vol: 14, bright: 30, source: 'youtube', icon: 'fas fa-music', view: 'hifi' },
                 { name: 'Light', state: 'on', vol: 14, bright: 30, source: 'youtube', icon: 'far fa-lightbulb', view: 'light' }

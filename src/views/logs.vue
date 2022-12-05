@@ -26,7 +26,7 @@
 </template>
 <script>
 export default {
-  data() {
+  data () {
     return {
       openDialog: false,
       console: [
@@ -52,7 +52,7 @@ export default {
     }
   },
   methods: {
-    reset() {
+    reset () {
       this.console = ['No events available']
 
       this.openDialog = false

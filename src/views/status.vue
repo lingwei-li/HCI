@@ -14,12 +14,12 @@
 <script>
 import { TimeSeries, SmoothieChart } from 'smoothie'
 export default {
-  data() {
+  data () {
     return {
       scene: 'Night scene'
     }
   },
-  mounted() {
+  mounted () {
     // Random data
     var line1 = new TimeSeries()
     // Add random data points at irregular intervals

@@ -1,13 +1,13 @@
 <template>
     <z-view style="border-width: 8px" slider :progress="progress">
-        <span style="color: var(--accent-text-color)">Light
+        <span style="color: var(--accent-text-color)">Washing machine
             <h1>{{ activeScene }}</h1>
             {{ msg }}
         </span>
-        <img slot="image" src="light.jpg" width="100%" height="100%" style="opacity: 0.3">
+        <img slot="image" src="laundry.jpg" width="100%" height="100%" style="opacity: 0.3">
         <div slot="extension">
             <z-spot v-for="(device, index) in devices" :button="device.name !== 'AC'"
-                :knob="(device.name == 'Temperature' || device.name == 'Brightness')" v-bind.sync="device.temp"
+                :knob="(device.name == 'Temperature' || device.name == 'Velocity')" v-bind.sync="device.temp"
                 :angle="1 + (180 / (devices.length - 1) * index)" :distance="150" size="l" :to-view="device.view"
                 :label="device.name" :key="'dev_' + index">
                 <i :class="device.icon"></i>
@@ -40,7 +40,7 @@ export default {
             ],
             scenes: [
                 { name: 'Regular mode', state: 'deactive', icon: 'fas fa-sort' },
-                { name: 'Soft mode', state: 'deactive', icon: 'fas fa-sort' },
+                { name: 'Drying mode', state: 'deactive', icon: 'fas fa-sort' },
                 { name: 'Powerful mode', state: 'deactive', icon: 'fas fa-sort' },
                 { name: 'OFF', state: 'deactive', icon: 'fas fa-sort' }
             ]
@@ -75,28 +75,31 @@ export default {
                         vm.msg = 'Applying rules...'
                         if (scene === 'Regular mode') {
                             vm.devices = [
-
-                                { name: 'Brightness', state: 'on', temp: { qty: 2, unit: 'settings', min: 0, max: 3 } },
+                                { name: 'Temperature', state: 'on', temp: { qty: 0, unit: 'F', min: 122, max: 176 } },
+                                { name: 'Velocity', state: 'on', temp: { qty: 1, unit: 'settings', min: 1, max: 2 } },
 
 
                             ]
-                        } else if (scene === 'Soft mode') {
+                        } else if (scene === 'Drying mode') {
                             vm.devices = [
-
-                                { name: 'Brightness', state: 'on', temp: { qty: 1, unit: 'settings', min: 0, max: 3 } },
+                                { name: 'Temperature', state: 'on', temp: { qty: 150, unit: 'F', min: 122, max: 176 } },
+                                { name: 'Velocity', state: 'off', temp: { qty: 0, unit: 'settings', min: 1, max: 2 } },
 
 
                             ]
                         } else if (scene === 'Powerful mode') {
                             vm.devices = [
-
-                                { name: 'Brightness', state: 'on', temp: { qty: 3, unit: 'settings', min: 0, max: 3 } },
+                                { name: 'Temperature', state: 'on', temp: { qty: 0, unit: 'F', min: 122, max: 176 } },
+                                { name: 'Velocity', state: 'on', temp: { qty: 2, unit: 'settings', min: 1, max: 2 } },
 
 
                             ]
                         } else if (scene === 'OFF') {
                             vm.devices = [
-                                { name: 'Brightness', state: 'off', temp: { qty: 0, unit: 'settings', min: 0, max: 3 } }
+                                { name: 'Temperature', state: 'off', temp: { qty: 0, unit: 'F', min: 122, max: 176 } },
+                                { name: 'Velocity', state: 'off', temp: { qty: 0, unit: 'settings', min: 1, max: 2 } },
+
+
                             ]
                         }
                         vm.progress++
@@ -110,7 +113,7 @@ export default {
         }
     },
     created() {
-        this.showMe('Regular mode')
+        this.showMe('OFF')
     }
 }
 </script>
